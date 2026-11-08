@@ -1,2 +1,4 @@
 keyman/build/
 __pycache__/
+.DS_Store
+docs/*.html
