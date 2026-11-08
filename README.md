@@ -3,12 +3,18 @@
 Référence : le convertisseur Bamini de Suratha (https://suratha.com/reader.htm).
 Une frappe Bamini donne le même texte que ce convertisseur (vérifié sur 19 phrases, ex. ``[d;dy; N`hl;ly;`` → ஜன்னல் ஹோட்டல்).
 
+![Clavier Tamil Bamini AZERTY : noir = français, rouge = tamoul (bas sans Maj, haut avec Maj), bleu = AltGr](docs/clavier-azerty.png)
+
+*Noir : AZERTY français · Rouge : tamoul (bas = sans Maj, haut = Maj) · Bleu : AltGr.
+L'image est générée par `python3 generer_image.py` à partir de la même table que le clavier.*
+
 ## Fichiers
 
 | Fichier | Rôle |
 |---|---|
 | `Tamil-Bamini-AZERTY.klc` | Source pour **Microsoft Keyboard Layout Creator** (installation native Windows) |
 | `keyman/source/` | Source et paquet **Keyman** (`.kmn`, `.kps`) (recommandé : gère l'ordre des voyelles ெ ே ை) |
+| `generer_image.py` | Redessine `docs/clavier-azerty.png` depuis la même table (nécessite Google Chrome) |
 | `generer_bamini.py` | Régénère les deux fichiers à partir d'une seule table (modifiez `KEYS` puis lancez `python generer_bamini.py`) |
 
 ## Le point important : ெ ே ை
