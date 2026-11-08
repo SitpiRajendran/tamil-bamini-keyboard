@@ -1,0 +1,168 @@
+﻿c Clavier Tamil Unicode - disposition Bamini pour AZERTY (généré par generer_bamini.py)
+store(&VERSION) '10.0'
+store(&NAME) 'Tamil Bamini AZERTY (Unicode)'
+store(&TARGETS) 'windows macosx'
+store(&KEYBOARDVERSION) '1.2'
+store(&COPYRIGHT) '(c) 2026 Sitpi Rajendran'
+
+begin Unicode > use(main)
+
+store(ckeys) [K_BKQUOTE] [K_Q] [K_W] [K_E] [K_R] [K_T] [K_Y] [K_U] [K_O] [K_LBRKT] [K_RBRKT] [K_BKSLASH] [K_A] [SHIFT K_A] [K_S] [K_D] [K_F] [K_G] [K_J] [K_K] [K_L] [K_Z]
+store(cons)  U+0BB9 U+0BAF U+0BA3 U+0BA8 U+0B9A U+0BB5 U+0BB2 U+0BB0 U+0BB4 U+0B9C U+0BB8 U+0BB7 U+0B99 U+0B9E U+0BB3 U+0BA9 U+0B95 U+0BAA U+0BA4 U+0BAE U+0B9F U+0BB1
+
+group(main) using keys
+
+c --- Bamini : le signe voyelle préfixe est tapé AVANT la consonne ;
+c --- on le replace après la consonne (ordre Unicode correct).
+dk(pv) U+0BC6 + any(ckeys) > index(cons, 3) U+0BC6
+dk(pv) U+0BC6 + [SHIFT K_BKQUOTE] > U+0B95 U+0BCD U+0BB7 U+0BC6
+dk(pv) U+0BC7 + any(ckeys) > index(cons, 3) U+0BC7
+dk(pv) U+0BC7 + [SHIFT K_BKQUOTE] > U+0B95 U+0BCD U+0BB7 U+0BC7
+dk(pv) U+0BC8 + any(ckeys) > index(cons, 3) U+0BC8
+dk(pv) U+0BC8 + [SHIFT K_BKQUOTE] > U+0B95 U+0BCD U+0BB7 U+0BC8
+
+c --- ெ/ே puis ா -> ொ/ோ ;  ெ puis ள -> ௌ ;  ஒ puis ள -> ஔ
+any(cons) U+0BC6 + [K_H] > index(cons, 1) U+0BCA
+any(cons) U+0BC7 + [K_H] > index(cons, 1) U+0BCB
+any(cons) U+0BC6 + [K_S] > index(cons, 1) U+0BCC
+U+0B92 + [K_S] > U+0B94
+
+c --- Suratha : ு puis ா / } / + -> ூ  (Sh = ளூ, Z} = ணூ, A+ = யூ)
+U+0BC1 + [K_H] > U+0BC2
+U+0BC1 + [SHIFT K_RBRKT] > U+0BC2
+U+0BC1 + [SHIFT NCAPS K_EQUAL] > U+0BC2
+any(cons) + [SHIFT NCAPS K_EQUAL] > index(cons, 1) U+0BC2
+U+0BC1 + [CAPS K_EQUAL] > U+0BC2
+any(cons) + [CAPS K_EQUAL] > index(cons, 1) U+0BC2
+c --- Suratha : ா a la forme de ர  ->  hp = ரி, hP = ரீ, h; = ர்
+U+0BBE + [K_P] > U+0BB0 U+0BBF
+U+0BBE + [SHIFT K_P] > U+0BB0 U+0BC0
+U+0BBE + [K_COMMA] > U+0BB0 U+0BCD
+
+c --- Consonnes
++ any(ckeys) > index(cons, 1)
+
+c --- Autres touches (dk(pv) = marqueur invisible : signe préfixe pas encore placé)
++ [SHIFT K_BKQUOTE] > U+0B95 U+0BCD U+0BB7
++ [NCAPS K_1] > U+0021
++ [SHIFT CAPS K_1] > U+0021
++ [SHIFT NCAPS K_1] > U+0031
++ [CAPS K_1] > U+0031
++ [NCAPS K_2] > U+0040
++ [SHIFT CAPS K_2] > U+0040
++ [SHIFT NCAPS K_2] > U+0032
++ [CAPS K_2] > U+0032
++ [NCAPS K_3] > U+0B9A U+0BC2
++ [SHIFT CAPS K_3] > U+0B9A U+0BC2
++ [SHIFT NCAPS K_3] > U+0033
++ [CAPS K_3] > U+0033
++ [NCAPS K_4] > U+0B95 U+0BC2
++ [SHIFT CAPS K_4] > U+0B95 U+0BC2
++ [SHIFT NCAPS K_4] > U+0034
++ [CAPS K_4] > U+0034
++ [NCAPS K_5] > U+0BAE U+0BC2
++ [SHIFT CAPS K_5] > U+0BAE U+0BC2
++ [SHIFT NCAPS K_5] > U+0035
++ [CAPS K_5] > U+0035
++ [NCAPS K_6] > U+0B9F U+0BC2
++ [SHIFT CAPS K_6] > U+0B9F U+0BC2
++ [SHIFT NCAPS K_6] > U+0036
++ [CAPS K_6] > U+0036
++ [NCAPS K_7] > U+0BB0 U+0BC2
++ [SHIFT CAPS K_7] > U+0BB0 U+0BC2
++ [SHIFT NCAPS K_7] > U+0037
++ [CAPS K_7] > U+0037
++ [NCAPS K_8] > U+0BB4 U+0BC2
++ [SHIFT CAPS K_8] > U+0BB4 U+0BC2
++ [SHIFT NCAPS K_8] > U+0038
++ [CAPS K_8] > U+0038
++ [NCAPS K_9] > U+0028
++ [SHIFT CAPS K_9] > U+0028
++ [SHIFT NCAPS K_9] > U+0039
++ [CAPS K_9] > U+0039
++ [NCAPS K_0] > U+0029
++ [SHIFT CAPS K_0] > U+0029
++ [SHIFT NCAPS K_0] > U+0030
++ [CAPS K_0] > U+0030
++ [NCAPS K_HYPHEN] > U+002D
++ [SHIFT CAPS K_HYPHEN] > U+002D
++ [SHIFT NCAPS K_HYPHEN] > U+0BC2
++ [CAPS K_HYPHEN] > U+0BC2
++ [NCAPS K_EQUAL] > U+0BB8 U+0BCD U+0BB0 U+0BC0
++ [SHIFT CAPS K_EQUAL] > U+0BB8 U+0BCD U+0BB0 U+0BC0
++ [SHIFT NCAPS K_EQUAL] > U+002B
++ [CAPS K_EQUAL] > U+002B
++ [SHIFT K_Q] > U+0BAF U+0BC1
++ [SHIFT K_W] > U+0BA3 U+0BC1
++ [SHIFT K_E] > U+0BA8 U+0BC1
++ [SHIFT K_R] > U+0B9A U+0BC1
++ [SHIFT K_T] > U+0BB5 U+0BC1
++ [SHIFT K_Y] > U+0BB2 U+0BC1
++ [SHIFT K_U] > U+0BB0 U+0BC1
++ [K_I] > dk(pv) U+0BC8
++ [SHIFT K_I] > U+0B90
++ [SHIFT K_O] > U+0BB4 U+0BC1
++ [K_P] > U+0BBF
++ [SHIFT K_P] > U+0BC0
++ [SHIFT K_LBRKT] > U+0BC1
++ [SHIFT K_RBRKT] > U+0BC2
++ [SHIFT K_BKSLASH] > U+003B
++ [SHIFT K_S] > U+0BB3 U+0BC1
++ [SHIFT K_D] > U+0BA9 U+0BC1
++ [SHIFT K_F] > U+0B95 U+0BC1
++ [SHIFT K_G] > U+0BAA U+0BC1
++ [K_H] > U+0BBE
++ [SHIFT K_H] > U+0BB0 U+0BCD
++ [SHIFT K_J] > U+0BA4 U+0BC1
++ [SHIFT K_K] > U+0BAE U+0BC1
++ [SHIFT K_L] > U+0B9F U+0BC1
++ [K_COLON] > U+0B85
++ [SHIFT K_COLON] > U+0B86
++ [K_QUOTE] > U+0027
++ [SHIFT K_QUOTE] > U+0022
++ [SHIFT K_Z] > U+0BB1 U+0BC1
++ [K_X] > U+0B92
++ [SHIFT K_X] > U+0B93
++ [K_C] > U+0B89
++ [SHIFT K_C] > U+0B8A
++ [K_V] > U+0B8E
++ [SHIFT K_V] > U+0B8F
++ [K_B] > U+0B9F U+0BBF
++ [SHIFT K_B] > U+0B9F U+0BC0
++ [K_N] > dk(pv) U+0BC6
++ [SHIFT K_N] > dk(pv) U+0BC7
++ [K_M] > U+0B87
++ [SHIFT K_M] > U+003F
++ [K_COMMA] > U+0BCD
++ [SHIFT K_COMMA] > U+002E
++ [K_PERIOD] > U+003A
++ [SHIFT K_PERIOD] > U+0B83
++ [K_SLASH] > U+0021
++ [SHIFT K_SLASH] > U+00A7
++ [K_oE2] > U+0B88
++ [SHIFT K_oE2] > U+002C
+
+c --- AltGr comme sur l'AZERTY français
++ [RALT NCAPS K_2] > U+007E
++ [RALT CAPS K_2] > U+007E
++ [RALT NCAPS K_3] > U+0023
++ [RALT CAPS K_3] > U+0023
++ [RALT NCAPS K_4] > U+007B
++ [RALT CAPS K_4] > U+007B
++ [RALT NCAPS K_5] > U+005B
++ [RALT CAPS K_5] > U+005B
++ [RALT NCAPS K_6] > U+007C
++ [RALT CAPS K_6] > U+007C
++ [RALT NCAPS K_7] > U+0060
++ [RALT CAPS K_7] > U+0060
++ [RALT NCAPS K_8] > U+005C
++ [RALT CAPS K_8] > U+005C
++ [RALT NCAPS K_9] > U+005E
++ [RALT CAPS K_9] > U+005E
++ [RALT NCAPS K_0] > U+0040
++ [RALT CAPS K_0] > U+0040
++ [RALT NCAPS K_HYPHEN] > U+005D
++ [RALT CAPS K_HYPHEN] > U+005D
++ [RALT NCAPS K_EQUAL] > U+007D
++ [RALT CAPS K_EQUAL] > U+007D
++ [RALT K_E] > U+20AC

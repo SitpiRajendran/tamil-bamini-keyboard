@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package>
+  <System>
+    <KeymanDeveloperVersion>17.0.0.0</KeymanDeveloperVersion>
+    <FileVersion>7.0</FileVersion>
+  </System>
+  <Options/>
+  <Info>
+    <Name URL="">Tamil Bamini AZERTY (Unicode)</Name>
+    <Copyright URL="">(c) 2026 Sitpi Rajendran</Copyright>
+    <Version URL="">1.2</Version>
+  </Info>
+  <Files>
+    <File>
+      <Name>../build/tamil_bamini_azerty.kmx</Name>
+      <Description>Clavier Tamil Bamini AZERTY</Description>
+      <CopyLocation>0</CopyLocation>
+      <FileType>.kmx</FileType>
+    </File>
+  </Files>
+  <Keyboards>
+    <Keyboard>
+      <Name>Tamil Bamini AZERTY (Unicode)</Name>
+      <ID>tamil_bamini_azerty</ID>
+      <Version>1.2</Version>
+      <Languages>
+        <Language ID="ta-LK">Tamil (Sri Lanka)</Language>
+      </Languages>
+    </Keyboard>
+  </Keyboards>
+</Package>
